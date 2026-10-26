@@ -1,0 +1,54 @@
+/* Tailwind CSS v4 Import */
+@import "tailwindcss";
+
+/* Enable class-based dark mode for Tailwind v4 */
+@custom-variant dark (&:is(.dark *));
+
+/* Global Base Styles 
+   Base styles applied across all pages
+*/
+@layer base {
+  html, body {
+    /* Default text and background colors */
+    @apply antialiased text-gray-900 bg-gray-50 font-sans;
+    
+    /* Mobile App / PWA Optimizations */
+    -webkit-tap-highlight-color: transparent; /* Disable tap highlight box on mobile buttons */
+    overscroll-behavior-y: none; /* Disable pull-to-refresh bounce on mobile browsers */
+  }
+
+  /* Custom text selection styling */
+  ::selection {
+    @apply bg-blue-200 text-blue-900;
+  }
+}
+
+/* Global Utilities 
+   Reusable utility classes available throughout the application
+*/
+@layer utilities {
+  
+  /* .no-scrollbar hides scrollbar while keeping scroll functionality active */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  /* Custom styled scrollbars for specific scrollable containers */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-gray-200 rounded-full;
+  }
+  .custom-scrollbar:hover::-webkit-scrollbar-thumb {
+    @apply bg-gray-300;
+  }
+  
+}
